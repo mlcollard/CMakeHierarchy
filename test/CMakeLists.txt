@@ -5,6 +5,14 @@ option(BUILD_CLIENT_TESTS "Build client tests" ON)
 option(BUILD_LIBRARY_TESTS "Build library tests" OFF)
 option(BUILD_ALL_TESTS "Build all tests" OFF)
 
+# standalone testing
+if(NOT PROJECT_NAME)
+    cmake_minimum_required(VERSION 3.18.4)
+    project(AppTest)
+    enable_testing()
+    set(BUILD_ALL_TESTS ON)
+endif()
+
 # Turn ON building all tests
 if(BUILD_ALL_TESTS)
     set(BUILD_CLIENT_TESTS ON)
